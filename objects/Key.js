@@ -1,5 +1,5 @@
 // Thumbstick object
-function Key(x, y, keyCode, keyText, axis, revertedAxis, size, deadzone) {
+function Key(x, y, keyCode, keyText, axis, revertedAxis, size, deadzone, backgroundImage, fillStyle, fillSize) {
 
 	this.x = x; this.y = y;
     this.keyCode = keyCode;
@@ -8,8 +8,11 @@ function Key(x, y, keyCode, keyText, axis, revertedAxis, size, deadzone) {
     this.revertedAxis = revertedAxis;
     this.value = 0;
     this._previousValue = 0;
-    this.size = size
-    this.deadzone = deadzone
+    this.size = size;
+    this.deadzone = deadzone;
+	this.backgroundImage = backgroundImage;
+	this.fillStyle = fillStyle;
+	this.fillSize = fillSize;
 
 	this.update = function(delta) {
 
@@ -41,10 +44,18 @@ function Key(x, y, keyCode, keyText, axis, revertedAxis, size, deadzone) {
 	this.draw = function(canvas, ctx) {
 
         ctx.beginPath();
-        canvas_fill_rec(ctx, 0, size, size, -size * this.value, {fillStyle:"#444ED2"});
+        canvas_fill_rec(ctx, 0, this.fillSize, this.fillSize, -this.fillSize * this.value, {fillStyle:this.fillStyle});
         ctx.stroke();
 
+		ctx.drawImage(
+			this.backgroundImage,
+			0, 0,
+			this.backgroundImage.width, this.backgroundImage.height,
+			-this.size*.5, -this.size*.5,
+			this.size, this.size
+		)
+
         // Print key text
-        canvas_text(ctx, 0, 0, this.keyText, {textAlign:"center",fillStyle:"white",font:"30px Arial"});
+        canvas_text(ctx, 0, 0, this.keyText, {textAlign:"center",fillStyle:"white",font:"30px Lucida Console"});
 	}
 }
