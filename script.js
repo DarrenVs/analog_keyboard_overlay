@@ -15,6 +15,9 @@ window.addEventListener("load",function () {
 		var canvas = document.getElementById("canvas");
 		var ctx = canvas.getContext("2d");
 
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+
 		var objects = [
 			new Thumbstick(
                 200*.5, 50+200*.5,
@@ -22,10 +25,10 @@ window.addEventListener("load",function () {
                 Math.min(200*.5, 200*.5)-5,
                 0.1
             ),
-			new Key(350+85, 100+0,"KeyW","W",1,true,100,0.1),
-			new Key(350+0, 100+100,"KeyA","A",0,true,100,0.1),
-			new Key(350+100, 100+100,"KeyS","S",1,false,100,0.1),
-			new Key(350+200, 100+100,"KeyD","D",0,false,100,0.1),
+			new Key(canvas.width-300+85, 100+0,"KeyW","W",1,true,100,0.1),
+			new Key(canvas.width-300+0, 100+100,"KeyA","A",0,true,100,0.1),
+			new Key(canvas.width-300+100, 100+100,"KeyS","S",1,false,100,0.1),
+			new Key(canvas.width-300+200, 100+100,"KeyD","D",0,false,100,0.1),
 		];
 
 		// Set render function
