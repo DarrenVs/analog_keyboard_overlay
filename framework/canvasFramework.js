@@ -35,13 +35,24 @@ window.addEventListener("load",function () {
 
 
 	// Main update loop
-	var updateLoop = function(delta) {
+	var previousTime = 0;
+	var updateLoop = function(currentTime) {
+
+		// Calculate delta
+		var delta = (currentTime - previousTime) / 1000;
+		previousTime = currentTime;
 
 		// Var to check if there were any frame updates needed this loop
 		var updateScreen = false;
 
 		// Update gamepad info
 		gamepads = navigator.getGamepads();
+
+		// Update scene
+		if (activeScene.update.call(activeScene, delta) === true) {
+
+			updateScreen = true;
+		}
 
 		// Update objects
 		for (var i = 0; i < activeScene.objects.length; i++) {

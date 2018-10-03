@@ -1,5 +1,5 @@
 // Thumbstick object
-function Key(x, y, keyCode, keyText, axis, revertedAxis, size, deadzone, backgroundImage, fillStyle, fillSize) {
+function Key(x, y, keyCode, keyText, axis, revertedAxis, size, deadzone, backgroundImage, fillStyle, fillStyleBackground, fillSize) {
 
 	this.x = x; this.y = y;
     this.keyCode = keyCode;
@@ -12,6 +12,7 @@ function Key(x, y, keyCode, keyText, axis, revertedAxis, size, deadzone, backgro
     this.deadzone = deadzone;
 	this.backgroundImage = backgroundImage;
 	this.fillStyle = fillStyle;
+	this.fillStyleBackground = fillStyleBackground;
 	this.fillSize = fillSize;
 
 	this.update = function(delta) {
@@ -43,9 +44,14 @@ function Key(x, y, keyCode, keyText, axis, revertedAxis, size, deadzone, backgro
 
 	this.draw = function(canvas, ctx) {
 
+		// Fill background
+        ctx.beginPath();
+        canvas_fill_rec(ctx, 0, 0, this.fillSize, this.fillSize, {fillStyle:this.fillStyleBackground});
+
+		// Fill value
         ctx.beginPath();
         canvas_fill_rec(ctx, 0, this.fillSize, this.fillSize, -this.fillSize * this.value, {fillStyle:this.fillStyle});
-        ctx.stroke();
+
 
 		ctx.drawImage(
 			this.backgroundImage,
