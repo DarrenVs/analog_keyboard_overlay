@@ -8,6 +8,16 @@ The analog input is read from [Navigator.getGamepads()][ebc9fbee]. Reading axis 
 
 The current limitations of the browser scope is that this overlay can only read analog info in the background, keystrokes do not fire. A way around this issue is to bind your keystrokes to controller keys/axes and simulating them as keys in the overlay.
 
+## Installation & use
+
+**OBS Installation:**
+
+![Overlay installation](images/2018/10/overlay-installation.png)
+
+**Move elements around:**
+
+![Edit/move overlay elements](/images/2018/10/edit-move-overlay-elements.png)
+
 ### Wish to support this project?
 
 Send me a nice message on discord `@DarrenVs#0001` or tip via my streaming [tipping page][204bed40].
