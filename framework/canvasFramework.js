@@ -1,7 +1,7 @@
 
 
 
-
+var canvas;
 var mouse, keyboard, gamepads;
 
 
@@ -10,7 +10,7 @@ var mouse, keyboard, gamepads;
 window.addEventListener("load",function () {
 
 	//Index
-	var canvas = document.getElementById("canvas");
+	canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;

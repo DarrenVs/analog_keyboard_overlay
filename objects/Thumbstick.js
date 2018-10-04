@@ -24,6 +24,8 @@ function Thumbstick(x, y, width, height, properties) {
 	// Frameork properties
 	this.x = x; this.y = y;
 	this.width = width; this.height = height;
+    this.defaultProperties = defaultThumbstickProperties;
+    this.className = "Thumbstick";
 
 	// Object properties
 	applyProperties(this, defaultThumbstickProperties);

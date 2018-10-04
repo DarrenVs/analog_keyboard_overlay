@@ -14,25 +14,22 @@
 	<script type="text/javascript" src="objects/Thumbstick.js"></script>
 	<script type="text/javascript" src="objects/Key.js"></script>
 	<script type="text/javascript" src="objects/Text.js"></script>
+	<script type="text/javascript" src="objects/PropertyEdit.js"></script>
 	<script type="text/javascript" src="scenes/default.js"></script>
 	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-	<canvas id="canvas" width="1200" height="600">
+	<canvas id="canvas" width="1200" height="600" oncontextmenu="return false">
 		Your browser does not support the HTML5 canvas tag.
 	</canvas>
-	<div id="propertyEdit">
-		<p class="windowTitle">Window title text</p>
-		<table>
-			<tr class="tableIndex">
-				<th>Propert name</th>
-				<th>Propert value</th>
-			</tr>
-			<tr id="propertyValues">
+	<div id="propertyEditor" hidden>
+		<p id="propertyEditorTitle">Window title text</p>
+		<table id="propertyTable">
+			<tr class="property">
 				<td>fillStyle: </td>
-				<td><input type="text"></td>
+				<td><input type="text" value="" class="inputBox fillStyle"></td>
 			</tr>
 		</table>
 	</div>

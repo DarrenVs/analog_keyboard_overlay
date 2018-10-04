@@ -27,14 +27,13 @@ function Mouse() {
 
     // Mouse events
 
-    document.addEventListener('mousedown', function(e) {
+    canvas.addEventListener('mousedown', function(e) {
 
         // Update position;
         mouse.x = e.x;
         mouse.y = e.y;
 
         // Update button state
-        console.log(e);
         if (mouse[ 'button'+e.which ] === false) {
 
             mouse[ 'button'+e.which ] = true;
@@ -42,7 +41,7 @@ function Mouse() {
         }
     });
 
-    document.addEventListener('mouseup', function(e) {
+    canvas.addEventListener('mouseup', function(e) {
 
         // Update position;
         mouse.x = e.x;
@@ -55,14 +54,14 @@ function Mouse() {
         }
     });
 
-    document.addEventListener('mousemove', function(e) {
+    canvas.addEventListener('mousemove', function(e) {
 
         // Update position;
         mouse.x = e.x;
         mouse.y = e.y;
     });
 
-    document.addEventListener('wheel', function(e) {
+    canvas.addEventListener('wheel', function(e) {
 
         // Update wheel delta
         mouse.wheelDelta.x = e.deltaX;

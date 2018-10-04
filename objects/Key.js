@@ -25,6 +25,8 @@ function Key(x, y, width, height, properties) {
 	// Framework properties
 	this.x = x; this.y = y;
 	this.width = width; this.height = height;
+    this.defaultProperties = defaultKeyProperties;
+    this.className = "Key";
 
 	// Object properties
 	applyProperties(this, defaultKeyProperties);

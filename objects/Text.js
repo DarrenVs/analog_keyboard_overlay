@@ -19,6 +19,8 @@ function Text(x, y, width, height, properties) {
 	// Framework properties
 	this.x = x; this.y = y;
 	this.width = width; this.height = height;
+    this.defaultProperties = defaultTextProperties;
+    this.className = "Text";
 
 	// Object properties
 	applyProperties(this, defaultTextProperties);

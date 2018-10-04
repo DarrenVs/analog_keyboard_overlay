@@ -18,6 +18,10 @@ function scene_default(canvas, ctx) {
     var draggingOffset = new Vector(0, 0);
     var gridsize = 10;
 
+    // Property editor
+    var propertyEditor = new PropertyEdit(0, 0, 10, 10);
+    var editingProperties = false;
+
     // The objects to be rendered
     this.objects = [
         new Thumbstick(
@@ -71,17 +75,10 @@ function scene_default(canvas, ctx) {
     // Update loop
     this.update = function(delta) {
 
-        // Fade credits away
-        if (creditsAlpha > 0) {
-            credit.textStyle.fillStyle = "rgba(108, 108, 108, "+ creditsAlpha +")";
-            creditsAlpha -= (1/fadeTime) * delta;
-
-            return true;
-        }
-
         // Drag objects around
-        if (mouse.button1Click === true || mouse.button2Click === true) {
+        if (mouse.button1Click === true || mouse.button3Click === true) {
 
+            clickedObject = null;
             for (var i = 0; i < this.objects.length; i++) {
                 var object = this.objects[i];
 
@@ -97,7 +94,7 @@ function scene_default(canvas, ctx) {
                     break;
                 }
             }
-        } if (mouse.button1 === false && clickedObject !== null) {
+        } if ((mouse.button1 === false && mouse.button3 === false) && clickedObject !== null) {
 
             console.log("Released mouse");
             clickedObject = null;
@@ -112,12 +109,35 @@ function scene_default(canvas, ctx) {
 
 
         // Options menu
-        if (mouse.button1Click === true) {
+        // Clicked away from the menu
+        if (mouse.button3Click === true || mouse.button1Click === true) {
 
-            if (clickedObject !== null) {
+            if (clickedObject === null && editingProperties === true) {
 
-                console.log("right clicked object", clickedObject);
+                console.log("clicked away from editor");
+
+                // Hide property edit window
+                propertyEditor.hidePropertyEdit();
+                editingProperties = false;
             }
+        }
+        // Clicked on an object
+        if (mouse.button3Click === true && clickedObject !== null && editingProperties === false) {
+
+            console.log("Editing object");
+
+            // Show property edit window
+            propertyEditor.showPropertyEdit(clickedObject.defaultProperties, clickedObject);
+            editingProperties = true;
+        }
+
+
+        // Fade credits away
+        if (creditsAlpha > 0) {
+            credit.textStyle.fillStyle = "rgba(108, 108, 108, "+ creditsAlpha +")";
+            creditsAlpha -= (1/fadeTime) * delta;
+
+            return true;
         }
     }
 }

@@ -3,20 +3,38 @@
 	top: 0; left: 0;
 }
 
-#propertyEdit {
-	background-color: #B4B4B4;
-	border: solid 1px;
+#propertyEditor {
+	color: #cdc1c1;
+	background-color: rgba(111, 110, 122, 0.96);
+	border: solid 1px #B4B4B4;
 	position: absolute;
-	top: 20%; left: 30%;
-	width: 300px; height: 100px;
-	display: none;
+	width: 70%; height: 90%;
+	top: 5%; left: 15%;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
-#propertyEdit input {
+#propertyTable {
+	width: 100%;
+	margin-top: 1em;
+}
+#propertyTable input {
+	color: #cdc1c1;
+	padding: .7em;
+	width: 90%;
 	background-color: rgba(0, 0, 0, 0);
 }
 
-.windowTitle {
-	top: 0; left: 0; margin-top: 0; padding-top: 0;
+#propertyEditorTitle {
+	position: fixed;
+	font-size: 2em;
+	top: 5%; left: 15%; margin-top: 0; padding-top: 0;
+	margin-bottom: .1em;
+	text-shadow: 2px 2px #000
 }
 
-body { background-color: rgba(0, 111, 0, 0); margin: 0px auto; overflow: hidden; }
+body {
+	font: 1em Lucida Console;
+	background-color: rgba(0, 111, 0, 1);
+	margin: 0px auto;
+	overflow: hidden;
+}
