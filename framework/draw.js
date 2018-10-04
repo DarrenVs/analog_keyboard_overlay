@@ -64,5 +64,5 @@ function canvas_text(context, x, y, text, properties) {
 // Draw text
 function canvas_fill_rec(context, x, y, sizex, sizey, properties) {
     if (properties !== undefined) canvas_properties(context, properties);
-    context.fillRect(x - sizex*.5, y - sizex*.5, sizex, sizey);
+    context.fillRect(x, y, sizex, sizey);
 }

@@ -7,41 +7,117 @@ function scene_default(canvas, ctx) {
 
     // The shameless credits that fade away after launch
     var credit = new Text(
-        canvas.width*.5, canvas.height-25,
-        "Created by DarrenVs",
-        {textAlign:"center",fillStyle:"rgba(108, 108, 108)",font:"26px Lucida Console"}
+        canvas.width*.5, canvas.height-25, 300, 50,
+        {text:"Created by DarrenVs",textAlign:"center",fillStyle:"rgba(108, 108, 108)",font:"26px Lucida Console"}
     );
     var creditsAlpha = 1;
     var fadeTime = 7;
 
+    // Object dragging info
+    var clickedObject = null;
+    var draggingOffset = new Vector(0, 0);
+    var gridsize = 10;
+
     // The objects to be rendered
     this.objects = [
         new Thumbstick(
-            200*.5, 50+200*.5,
-            10,
-            Math.min(200*.5, 200*.5)-5,
-            0.1,
-            {lineWidth:0, fillStyle:"rgba(37, 37, 37, 0.43)"},
-            {strokeStyle:"#B4B4B4", lineWidth:4},
-            {strokeStyle:"#B4B4B4", lineWidth:4},
-            {fillStyle:"#524d4d"},
-            {strokeStyle:"#B4B4B4", lineWidth:4},
-            {strokeStyle:"#524d4d", lineWidth:4},
+            15, 50, 200, 200,
+            {
+                backgroundProperties: {lineWidth:4, strokeStyle:"#B4B4B4", fillStyle:"rgba(37, 37, 37, 0.43)"},
+                xLineProperties: {strokeStyle:"#B4B4B4", lineWidth:4},
+                yLineProperties: {strokeStyle:"#B4B4B4", lineWidth:4},
+                deadzoneProperties: {fillStyle:"#524d4d"},
+                inputVectorProperties: {strokeStyle:"#B4B4B4", lineWidth:4},
+                unitVectorProperties: {strokeStyle:"#524d4d", lineWidth:4},
+            }
         ),
-        new Key(canvas.width-300+85, 100+0,"KeyW","W",1,true,100,0.1,KeyImage,"rgba(255, 255, 255, 0.52)","rgba(37, 37, 37, 0.43)",85),
-        new Key(canvas.width-300+0, 100+100,"KeyA","A",0,true,100,0.1,KeyImage,"rgba(255, 255, 255, 0.52)","rgba(37, 37, 37, 0.43)",85),
-        new Key(canvas.width-300+100, 100+100,"KeyS","S",1,false,100,0.1,KeyImage,"rgba(255, 255, 255, 0.52)","rgba(37, 37, 37, 0.43)",85),
-        new Key(canvas.width-300+200, 100+100,"KeyD","D",0,false,100,0.1,KeyImage,"rgba(255, 255, 255, 0.52)","rgba(37, 37, 37, 0.43)",85),
+        new Key(
+            canvas.width-300+85, 50+0, 100, 100,
+            {axis:1,revertedAxis:true,keyText:"W",backgroundImage:KeyImage}
+        ),
+        new Key(
+            canvas.width-300+0, 50+100, 100, 100,
+            {axis:0,revertedAxis:true,keyText:"A",backgroundImage:KeyImage}
+        ),
+        new Key(
+            canvas.width-300+100, 50+100, 100, 100,
+            {axis:1,revertedAxis:false,keyText:"S",backgroundImage:KeyImage}
+        ),
+        new Key(
+            canvas.width-300+200, 50+100, 100, 100,
+            {axis:0,revertedAxis:false,keyText:"D",backgroundImage:KeyImage}
+        ),
         credit
     ];
 
+
+    this.draw = function(canvas, ctx) {
+
+        // Render outline when editing objects
+        if (clickedObject !== null) {
+    		for (var i = 0; i < this.objects.length; i++) {
+
+    			var object = this.objects[i];
+
+                ctx.setTransform(1, 0, 0, 1, object.x, object.y);
+            	ctx.beginPath();
+            	canvas_properties(ctx, {strokeStyle:"#FF00FF", lineWidth:1})
+            	ctx.rect(0, 0, object.width, object.height);
+            	ctx.stroke();
+            }
+        }
+    }
+
+    // Update loop
     this.update = function(delta) {
 
+        // Fade credits away
         if (creditsAlpha > 0) {
             credit.textStyle.fillStyle = "rgba(108, 108, 108, "+ creditsAlpha +")";
             creditsAlpha -= (1/fadeTime) * delta;
 
             return true;
+        }
+
+        // Drag objects around
+        if (mouse.button1Click === true || mouse.button2Click === true) {
+
+            for (var i = 0; i < this.objects.length; i++) {
+                var object = this.objects[i];
+
+                if ((mouse.x > object.x && mouse.y > object.y)
+                && (mouse.x < object.x + object.width && mouse.y < object.y + object.height)) {
+
+                    draggingOffset.x = object.x - mouse.x;
+                    draggingOffset.y = object.y - mouse.y;
+                    clickedObject = object;
+
+                    console.log("Clicked on object:", object);
+
+                    break;
+                }
+            }
+        } if (mouse.button1 === false && clickedObject !== null) {
+
+            console.log("Released mouse");
+            clickedObject = null;
+        }
+        if (clickedObject !== null && mouse.button1 === true) {
+
+            console.log("Dragging");
+            clickedObject.x = Math.round((mouse.x + draggingOffset.x)/gridsize)*gridsize;
+            clickedObject.y = Math.round((mouse.y + draggingOffset.y)/gridsize)*gridsize;
+        }
+
+
+
+        // Options menu
+        if (mouse.button1Click === true) {
+
+            if (clickedObject !== null) {
+
+                console.log("right clicked object", clickedObject);
+            }
         }
     }
 }

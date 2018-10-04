@@ -9,6 +9,8 @@
 	<script type="text/javascript" src="framework/draw.js"></script>
 	<script type="text/javascript" src="framework/gamepad.js"></script>
 	<script type="text/javascript" src="framework/keyboard.js"></script>
+	<script type="text/javascript" src="framework/mouse.js"></script>
+	<script type="text/javascript" src="framework/applyProperties.js"></script>
 	<script type="text/javascript" src="objects/Thumbstick.js"></script>
 	<script type="text/javascript" src="objects/Key.js"></script>
 	<script type="text/javascript" src="objects/Text.js"></script>
@@ -17,9 +19,23 @@
 </head>
 
 <body>
+
 	<canvas id="canvas" width="1200" height="600">
 		Your browser does not support the HTML5 canvas tag.
 	</canvas>
+	<div id="propertyEdit">
+		<p class="windowTitle">Window title text</p>
+		<table>
+			<tr class="tableIndex">
+				<th>Propert name</th>
+				<th>Propert value</th>
+			</tr>
+			<tr id="propertyValues">
+				<td>fillStyle: </td>
+				<td><input type="text"></td>
+			</tr>
+		</table>
+	</div>
 </body>
 
 </html>

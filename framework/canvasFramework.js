@@ -2,7 +2,7 @@
 
 
 
-
+var mouse, keyboard, gamepads;
 
 
 
@@ -15,6 +15,10 @@ window.addEventListener("load",function () {
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
 
+	// Index inputs
+	mouse = new Mouse();
+
+	// The active scene to dispaly
 	var activeScene = new scene_default(canvas, ctx);
 
 	// Set render function
@@ -24,12 +28,17 @@ window.addEventListener("load",function () {
         ctx.setTransform(1, 0, 0, 1, 0, 0);
 		ctx.clearRect(0,0,canvas.width,canvas.height);
 
+		// Draw scene
+		activeScene.draw.call(activeScene, canvas, ctx);
+		ctx.closePath();
+
 		// Draw
 		for (var i = 0; i < activeScene.objects.length; i++) {
 			var object = activeScene.objects[i];
 
             ctx.setTransform(1, 0, 0, 1, object.x, object.y);
 			object.draw.call(object, canvas, ctx);
+			ctx.closePath();
 		}
 	}
 
@@ -68,6 +77,9 @@ window.addEventListener("load",function () {
 		if (updateScreen) {
 			frameUpdate();
 		}
+
+		// Update mouse
+		mouse.update(delta);
 
 		// Next loop
 		window.requestAnimationFrame(updateLoop);

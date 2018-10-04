@@ -1,19 +1,39 @@
-// Thumbstick object
-function Key(x, y, keyCode, keyText, axis, revertedAxis, size, deadzone, backgroundImage, fillStyle, fillStyleBackground, fillSize) {
 
+
+
+
+// Default restorepoint properties
+defaultKeyProperties = {
+    keyCode: "KeyH",
+    keyText: "SampleText",
+    axis: 0,
+    revertedAxis: false,
+    size: 100,
+    deadzone: 0.2,
+	backgroundImage: new Image(),
+	fillStyle: "rgba(255, 255, 255, 0.52)",
+	fillStyleBackground: "rgba(37, 37, 37, 0.43)",
+	fillSize: 85,
+}
+
+
+
+// Thumbstick object
+function Key(x, y, width, height, properties) {
+
+
+	// Framework properties
 	this.x = x; this.y = y;
-    this.keyCode = keyCode;
-    this.keyText = keyText;
-    this.axis = axis;
-    this.revertedAxis = revertedAxis;
+	this.width = width; this.height = height;
+
+	// Object properties
+	applyProperties(this, defaultKeyProperties);
+	// Custom object properties
+	applyProperties(this, properties);
+
+	// Object values
     this.value = 0;
     this._previousValue = 0;
-    this.size = size;
-    this.deadzone = deadzone;
-	this.backgroundImage = backgroundImage;
-	this.fillStyle = fillStyle;
-	this.fillStyleBackground = fillStyleBackground;
-	this.fillSize = fillSize;
 
 	this.update = function(delta) {
 
@@ -44,24 +64,26 @@ function Key(x, y, keyCode, keyText, axis, revertedAxis, size, deadzone, backgro
 
 	this.draw = function(canvas, ctx) {
 
+		var fillOffset = -(this.fillSize-this.size)*.5
+
 		// Fill background
         ctx.beginPath();
-        canvas_fill_rec(ctx, 0, 0, this.fillSize, this.fillSize, {fillStyle:this.fillStyleBackground});
+        canvas_fill_rec(ctx, fillOffset, fillOffset, this.fillSize, this.fillSize, {fillStyle:this.fillStyleBackground});
 
 		// Fill value
         ctx.beginPath();
-        canvas_fill_rec(ctx, 0, this.fillSize, this.fillSize, -this.fillSize * this.value, {fillStyle:this.fillStyle});
+        canvas_fill_rec(ctx, fillOffset, fillOffset+this.fillSize, this.fillSize, -this.fillSize * this.value, {fillStyle:this.fillStyle});
 
 
 		ctx.drawImage(
 			this.backgroundImage,
 			0, 0,
 			this.backgroundImage.width, this.backgroundImage.height,
-			-this.size*.5, -this.size*.5,
+			0, 0,
 			this.size, this.size
 		)
 
         // Print key text
-        canvas_text(ctx, 0, 0, this.keyText, {textAlign:"center",fillStyle:"white",font:"30px Lucida Console"});
+        canvas_text(ctx, this.size*.5, this.size*.5, this.keyText, {textAlign:"center",fillStyle:"white",font:"30px Lucida Console"});
 	}
 }
