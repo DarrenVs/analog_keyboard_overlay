@@ -12,11 +12,11 @@ The current limitations of the browser scope is that this overlay can only read 
 
 **OBS Installation:**
 
-![Overlay installation](images/2018/10/overlay-installation.png)
+![Overlay installation](https://i.imgur.com/CqEanAn.png)
 
 **Move elements around:**
 
-![Edit/move overlay elements](/images/2018/10/edit-move-overlay-elements.png)
+![Edit/move overlay elements](https://i.imgur.com/0QGuCqW.png)
 
 ### Wish to support this project?
 
