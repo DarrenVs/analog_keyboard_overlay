@@ -20,9 +20,10 @@ The current limitations of the browser scope is that this overlay can only read 
 
 ### Wish to support this project?
 
-Send me a nice message on discord `@DarrenVs#0001` or tip via my streaming [tipping page][204bed40].
+Send me a nice message on discord [`#dev`][4cb0053a]`@DarrenVs` or tip via my streaming [tipping page][204bed40].
 
 [204bed40]: https://streamelements.com/darrenvs/tip "DarrenVs's tipping page"
+[4cb0053a]: https://discord.gg/C8hY9z3 "Wooting's #woot_dev channel"
 [b68cfb52]: https://developer.mozilla.org/nl/docs/Web/API/Canvas_API "Canvas API"
 [e148b553]: https://obsproject.com/ "Open Broadcaster Software"
 [ebc9fbee]: https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getGamepads "getGamepads"
