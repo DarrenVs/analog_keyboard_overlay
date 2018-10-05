@@ -12,7 +12,7 @@ The current limitations of the browser scope is that this overlay can only read 
 
 **OBS Installation:**
 
-![Overlay installation](https://i.imgur.com/CqEanAn.png)
+`https://darrenvs.github.io/analogue_keyboard_overlay/` ![Overlay installation](https://i.imgur.com/CqEanAn.png)
 
 **Move elements around:**
 
