@@ -36,56 +36,60 @@ function Key(x, y, width, height, properties) {
 	// Object values
     this.value = 0;
     this._previousValue = 0;
+}
 
-	this.update = function(delta) {
 
-		var value = 0;
+// Update loop
+Key.prototype.update = function (delta) {
 
-		// Get keyboard input
-		value += keyboard[this.keyCode] ? 1 : 0;
+	var value = 0;
 
-		// Get gamepad input
-		for (var id in gamepads) {
-			var gamepad = gamepads[id];
-			if (gamepad !== null && gamepad.axes && gamepad.axes[this.axis]) {
+	// Get keyboard input
+	value += keyboard[this.keyCode] ? 1 : 0;
 
-                if ((this.revertedAxis === true && gamepad.axes[this.axis] < 0)
-                || (this.revertedAxis === false && gamepad.axes[this.axis] > 0)) {
+	// Get gamepad input
+	for (var id in gamepads) {
+		var gamepad = gamepads[id];
+		if (gamepad !== null && gamepad.axes && gamepad.axes[this.axis]) {
 
-    				value += Math.abs(gamepad.axes[this.axis]);
-                }
-			}
+            if ((this.revertedAxis === true && gamepad.axes[this.axis] < 0)
+            || (this.revertedAxis === false && gamepad.axes[this.axis] > 0)) {
+
+				value += Math.abs(gamepad.axes[this.axis]);
+            }
 		}
-
-		// Update input
-		this.value = Math.max(Math.min(value, 1), 0);
-
-		// Update position
-		return true //Math.abs(this._previousValue - this.value) > this.deadzone;
 	}
 
-	this.draw = function(canvas, ctx) {
+	// Update input
+	this.value = Math.max(Math.min(value, 1), 0);
 
-		var fillOffset = -(this.fillSize-this.size)*.5
-
-		// Fill background
-        ctx.beginPath();
-        canvas_fill_rec(ctx, fillOffset, fillOffset, this.fillSize, this.fillSize, {fillStyle:this.fillStyleBackground});
-
-		// Fill value
-        ctx.beginPath();
-        canvas_fill_rec(ctx, fillOffset, fillOffset+this.fillSize, this.fillSize, -this.fillSize * this.value, {fillStyle:this.fillStyle});
+	// Update position
+	return true //Math.abs(this._previousValue - this.value) > this.deadzone;
+}
 
 
-		ctx.drawImage(
-			this.backgroundImage,
-			0, 0,
-			this.backgroundImage.width, this.backgroundImage.height,
-			0, 0,
-			this.size, this.size
-		)
+// Draw function
+Key.prototype.draw = function (canvas, ctx) {
 
-        // Print key text
-        canvas_text(ctx, this.size*.5, this.size*.5, this.keyText, {textAlign:"center",fillStyle:"white",font:"30px Lucida Console"});
-	}
+	var fillOffset = -(this.fillSize-this.size)*.5
+
+	// Fill background
+    ctx.beginPath();
+    canvas_fill_rec(ctx, fillOffset, fillOffset, this.fillSize, this.fillSize, {fillStyle:this.fillStyleBackground});
+
+	// Fill value
+    ctx.beginPath();
+    canvas_fill_rec(ctx, fillOffset, fillOffset+this.fillSize, this.fillSize, -this.fillSize * this.value, {fillStyle:this.fillStyle});
+
+
+	ctx.drawImage(
+		this.backgroundImage,
+		0, 0,
+		this.backgroundImage.width, this.backgroundImage.height,
+		0, 0,
+		this.size, this.size
+	)
+
+    // Print key text
+    canvas_text(ctx, this.size*.5, this.size*.5, this.keyText, {textAlign:"center",fillStyle:"white",font:"30px Lucida Console"});
 }

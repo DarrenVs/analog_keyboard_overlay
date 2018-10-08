@@ -28,18 +28,19 @@ function Text(x, y, width, height, properties) {
 	applyProperties(this, properties);
 
 	// Object values
+}
 
 
-	this.update = function(delta) {
+// Update loop
+Text.prototype.update = function (delta) {
+
+}
+
+// Draw function
+Text.prototype.draw = function (canvas, ctx) {
 
 
-	}
-
-	this.draw = function(canvas, ctx) {
-
-
-        // Print key text
-        ctx.beginPath();
-        canvas_text(ctx, 0, 0, this.text, this.textStyle);
-	}
+    // Print key text
+    ctx.beginPath();
+    canvas_text(ctx, 0, 0, this.text, this.textStyle);
 }
