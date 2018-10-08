@@ -6,7 +6,7 @@ This is a browser plugin overlay for [OBS Studio][e148b553]. This overlay displa
 
 The analog input is read from [Navigator.getGamepads()][ebc9fbee]. Reading axis from any connected controller with axes and displaying the values in [HTML5 Canvas][b68cfb52].
 
-The current limitations of the browser scope is that this overlay can only read analog info in the background, keystrokes do not fire. A way around this issue is to bind your keystrokes to controller keys/axes and simulating them as keys in the overlay.
+The current limitations of the OBS browser plugin scope is that you cannot read background keystrokes. However, gamepad information does update in the background. This overlay makes use of the gamepad information to read the analog information and display as keyboard information.
 
 ## Installation & use
 
