@@ -12,7 +12,7 @@ The current limitations of the OBS browser plugin scope is that you cannot read 
 
 **OBS Installation:**
 
-`https://darrenvs.github.io/analogue_keyboard_overlay/` ![Overlay installation](https://i.imgur.com/CqEanAn.png)
+`https://darrenvs.github.io/analog_keyboard_overlay/` ![Overlay installation](https://i.imgur.com/CqEanAn.png)
 
 **Move elements around:**
 
