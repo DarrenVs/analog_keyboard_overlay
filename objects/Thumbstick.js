@@ -23,6 +23,7 @@ function Thumbstick(x, y, width, height, properties) {
 
 	// Frameork properties
 	this.x = x; this.y = y;
+	this.previousX = this.x; this.previousY = this.y;
 	this.width = width; this.height = height;
     this.defaultProperties = defaultThumbstickProperties;
     this.className = "Thumbstick";
@@ -52,11 +53,13 @@ Thumbstick.prototype.update = function (delta) {
 	}
 
 	// Update input
+	this.previousX = this.input.x;
+	this.previousY = this.input.y;
 	this.input.x = Math.max(Math.min(xAxis, 1), -1);
 	this.input.y = Math.max(Math.min(yAxis, 1), -1);
 
 	// Update position
-	return this.input.length() > this.deadzone;
+	return this.previousX != this.input.x || this.previousY != this.input.y;
 }
 
 // Draw function

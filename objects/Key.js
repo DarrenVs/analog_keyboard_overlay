@@ -9,6 +9,7 @@ defaultKeyProperties = {
     axis: 0,
     revertedAxis: false,
     size: 100,
+    multiplier: 1,
     deadzone: 0.2,
 	backgroundImage: new Image(),
 	fillStyle: "rgba(255, 255, 255, 0.52)",
@@ -61,7 +62,7 @@ Key.prototype.update = function (delta) {
 	}
 
 	// Update input
-	this.value = Math.max(Math.min(value, 1), 0);
+	this.value = Math.max(Math.min(value*this.multiplier, 1), 0);
 
 	// Update position
 	return true //Math.abs(this._previousValue - this.value) > this.deadzone;

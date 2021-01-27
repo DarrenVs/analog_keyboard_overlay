@@ -4,7 +4,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>analog keyboard overlay</title>
-	<script type="text/javascript" src="framework/canvasFramework.js"></script>
 	<script type="text/javascript" src="framework/vector.js"></script>
 	<script type="text/javascript" src="framework/draw.js"></script>
 	<script type="text/javascript" src="framework/gamepad.js"></script>
@@ -15,7 +14,16 @@
 	<script type="text/javascript" src="objects/Key.js"></script>
 	<script type="text/javascript" src="objects/Text.js"></script>
 	<script type="text/javascript" src="objects/PropertyEdit.js"></script>
-	<script type="text/javascript" src="scenes/default.js"></script>
+	<script type="text/javascript">
+		var script = document.createElement('script');
+		script.onload = function () {
+		    //do stuff with the script
+		};
+		script.src = "scenes/"+ (window.location.hash.substr(1) || "default") +".js";
+
+		document.head.appendChild(script);
+	</script>
+	<script type="text/javascript" src="framework/canvasFramework.js"></script>
 	<link rel="stylesheet" href="style.css">
 </head>
 
