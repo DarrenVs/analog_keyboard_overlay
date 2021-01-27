@@ -14,7 +14,7 @@ The current limitations of the OBS browser plugin scope is that you cannot read 
 
 > `https://darrenvs.github.io/analog_keyboard_overlay/index.html`
 > `https://darrenvs.github.io/analog_keyboard_overlay/index.html#nokeys` (removes WASD)
-> `https://darrenvs.github.io/analog_keyboard_overlay/index.html#fortnite` (double movement modifier)
+> `https://darrenvs.github.io/analog_keyboard_overlay/index.html#fortnite` (fortnite double movement modifier)
 
 ![Overlay installation](https://i.imgur.com/CqEanAn.png)
 
