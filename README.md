@@ -22,11 +22,6 @@ The current limitations of the OBS browser plugin scope is that you cannot read 
 
 ![Edit/move overlay elements](https://i.imgur.com/0QGuCqW.png)
 
-### Wish to support this project?
-
-Send me a nice message on discord [`#dev`][4cb0053a]`@DarrenVs` or tip via my streaming [tipping page][204bed40].
-
-[204bed40]: https://streamelements.com/darrenvs/tip "DarrenVs's tipping page"
 [4cb0053a]: https://discord.gg/C8hY9z3 "Wooting's #woot_dev channel"
 [b68cfb52]: https://developer.mozilla.org/nl/docs/Web/API/Canvas_API "Canvas API"
 [e148b553]: https://obsproject.com/ "Open Broadcaster Software"
