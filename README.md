@@ -10,7 +10,7 @@ The current limitations of the OBS browser plugin scope is that you cannot read 
 
 ## Installation & use
 
-**OBS Installation:**
+### OBS Installation:
 
 > `https://darrenvs.github.io/analog_keyboard_overlay/index.html`
 > `https://darrenvs.github.io/analog_keyboard_overlay/index.html#nokeys` (removes WASD)
@@ -18,7 +18,7 @@ The current limitations of the OBS browser plugin scope is that you cannot read 
 
 ![Overlay installation](https://i.imgur.com/CqEanAn.png)
 
-**Move elements around:**
+### Move elements around:
 
 ![Edit/move overlay elements](https://i.imgur.com/0QGuCqW.png)
 
@@ -26,3 +26,8 @@ The current limitations of the OBS browser plugin scope is that you cannot read 
 [b68cfb52]: https://developer.mozilla.org/nl/docs/Web/API/Canvas_API "Canvas API"
 [e148b553]: https://obsproject.com/ "Open Broadcaster Software"
 [ebc9fbee]: https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getGamepads "getGamepads"
+
+
+## Preview
+https://user-images.githubusercontent.com/2780639/119910697-fb0e2400-bf57-11eb-8c88-68c30990f40d.mp4
+
