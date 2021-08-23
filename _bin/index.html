@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>analog keyboard overlay</title>
+	<script type="text/javascript" src="framework/vector.js"></script>
+	<script type="text/javascript" src="framework/draw.js"></script>
+	<script type="text/javascript" src="framework/gamepad.js"></script>
+	<script type="text/javascript" src="framework/keyboard.js"></script>
+	<script type="text/javascript" src="framework/mouse.js"></script>
+	<script type="text/javascript" src="framework/applyProperties.js"></script>
+	<script type="text/javascript" src="objects/Thumbstick.js"></script>
+	<script type="text/javascript" src="objects/Key.js"></script>
+	<script type="text/javascript" src="objects/Text.js"></script>
+	<script type="text/javascript" src="objects/PropertyEdit.js"></script>
+	<script type="text/javascript">
+		var script = document.createElement('script');
+		script.onload = function () {
+		    //do stuff with the script
+		};
+		script.src = "scenes/"+ (window.location.hash.substr(1) || "default") +".js";
+
+		document.head.appendChild(script);
+	</script>
+	<script type="text/javascript" src="framework/canvasFramework.js"></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<canvas id="canvas" width="1200" height="600" oncontextmenu="return false">
+		Your browser does not support the HTML5 canvas tag.
+	</canvas>
+	<div id="propertyEditor" hidden oncontextmenu="return false">
+		<p id="propertyEditorTitle">Window title text</p>
+		<table id="propertyTable">
+			<tr class="property">
+				<td>fillStyle: </td>
+				<td><input type="text" value="" class="inputBox fillStyle"></td>
+			</tr>
+		</table>
+	</div>
+</body>
+
+</html>
