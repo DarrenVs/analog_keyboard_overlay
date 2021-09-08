@@ -29,7 +29,11 @@ The current limitations of the OBS browser plugin scope is that you cannot read 
 [ebc9fbee]: https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getGamepads "getGamepads"
 
 
-### MOBA Gamers:
+## Preview
+https://user-images.githubusercontent.com/2780639/119910697-fb0e2400-bf57-11eb-8c88-68c30990f40d.mp4
+
+
+## MOBA Gamers only:
 Use a DirectInput gamepad for the extra axes it brings. Also known as 'Legacy Controller' in the Wootility Keyboard settings.
 
 ![image](https://user-images.githubusercontent.com/2780639/130568002-6c7160d9-9588-42ac-a66f-552132b9245d.png)
@@ -37,9 +41,4 @@ Use a DirectInput gamepad for the extra axes it brings. Also known as 'Legacy Co
 Use this profile template for your Wooting '`507cccec-34d2-4387-83b6-520fcaf90feb`', or map the following axes to your keyboard keys:
 
 ![image](https://user-images.githubusercontent.com/2780639/130568183-cfd58ea1-bd09-4ea6-b74a-1296b0d0c2f2.png)
-
-
-
-## Preview
-https://user-images.githubusercontent.com/2780639/119910697-fb0e2400-bf57-11eb-8c88-68c30990f40d.mp4
 
