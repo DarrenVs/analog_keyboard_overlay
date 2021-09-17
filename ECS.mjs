@@ -1,9 +1,9 @@
 
+import {Key} from "./EntityManager/Key.mjs"
 
 
 
-
-dummyProperties = {
+let dummyProperties = {
 
     foo: "bar",
 }
@@ -23,9 +23,10 @@ class Dummy {
 
     tell(word) {
 
-        console.log(this.hello, word)
+        console.log(this.foo, word)
+        console.log( Key )
     }
 }
 
 
-
+console.log(Key)
