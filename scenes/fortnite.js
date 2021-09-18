@@ -37,19 +37,19 @@ function scene_default(canvas, ctx) {
         ),
         new Key(
             canvas.width-300+85, 50+0, 100, 100,
-            {axis:1,revertedAxis:true,keyText:"W",backgroundImage:KeyImage,multiplier:2.3}
+            { axis: 1, revertedAxis: true, keyText: "W", backgroundImage: KeyImage, multiplier: 2.3}
         ),
         new Key(
             canvas.width-300+0, 50+100, 100, 100,
-            {axis:0,revertedAxis:true,keyText:"A",backgroundImage:KeyImage,multiplier:1.15}
+            { axis: 0, revertedAxis: true, keyText: "A", backgroundImage: KeyImage, multiplier: 1.15}
         ),
         new Key(
             canvas.width-300+100, 50+100, 100, 100,
-            {axis:1,revertedAxis:false,keyText:"S",backgroundImage:KeyImage,multiplier:2.3}
+            { axis: 1, revertedAxis: false, keyText: "S", backgroundImage: KeyImage, multiplier: 2.3}
         ),
         new Key(
             canvas.width-300+200, 50+100, 100, 100,
-            {axis:0,revertedAxis:false,keyText:"D",backgroundImage:KeyImage,multiplier:1.15}
+            { axis: 0, revertedAxis: false, keyText: "D", backgroundImage: KeyImage, multiplier: 1.15}
         ),
         credit
     ];

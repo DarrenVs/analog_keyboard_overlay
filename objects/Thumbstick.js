@@ -6,6 +6,8 @@
 defaultThumbstickProperties = {
     radius: 100,
     deadzone: 0.1,
+	xAxes: {0:true},
+	yAxes: {1:true},
 	backgroundProperties: {strokeStyle:"black", lineWidth:4, fillStyle:"rgba(255,255,255,0.3)"},
 	xLineProperties: {strokeStyle:"blue", lineWidth:4},
 	yLineProperties: {strokeStyle:"red", lineWidth:4},
@@ -47,8 +49,17 @@ Thumbstick.prototype.update = function (delta) {
 	for (var id in gamepads) {
 		var gamepad = gamepads[id];
 		if (gamepad !== null && gamepad.axes) {
-			xAxis += gamepad.axes[0] || 0;
-			yAxis += gamepad.axes[1] || 0;
+		
+			for (var i = 0; i < gamepad.axes.length; i++) {
+				
+				if (this.xAxes[i]) {
+					xAxis += gamepad.axes[i] || 0;
+				}
+				
+				if (this.yAxes[i]) {
+					yAxis += gamepad.axes[i] || 0;
+				}
+			}
 		}
 	}
 

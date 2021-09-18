@@ -6,13 +6,15 @@
 defaultKeyProperties = {
     keyCode: "KeyH",
     keyText: "SampleText",
+	button: -1,
     axis: 0,
+	linkedAxis: -1,
     revertedAxis: false,
     size: 100,
     multiplier: 1,
     deadzone: 0.2,
 	backgroundImage: new Image(),
-	fillStyle: "rgba(255, 255, 255, 0.52)",
+	fillStyle: "rgba(255, 255, 255, 0.5)",
 	fillStyleBackground: "rgba(37, 37, 37, 0.43)",
 	fillSize: 85,
 }
@@ -51,13 +53,27 @@ Key.prototype.update = function (delta) {
 	// Get gamepad input
 	for (var id in gamepads) {
 		var gamepad = gamepads[id];
-		if (gamepad !== null && gamepad.axes && gamepad.axes[this.axis]) {
+		if (gamepad !== null && gamepad.axes ) {
+			
+			if (gamepad.axes[this.axis]
+			&& (this.revertedAxis === true && gamepad.axes[this.axis] < 0)
+			|| (this.revertedAxis === false && gamepad.axes[this.axis] > 0)) {
+				if (gamepad.axes[this.linkedAxis]) {
 
-            if ((this.revertedAxis === true && gamepad.axes[this.axis] < 0)
-            || (this.revertedAxis === false && gamepad.axes[this.axis] > 0)) {
+					value += Math.abs(gamepad.axes[this.axis])
+						* (1.2 + Math.sin(Math.PI * Math.abs(gamepad.axes[this.linkedAxis])) / Math.PI); // quick fix to hide circular joystick
+				} else {
 
-				value += Math.abs(gamepad.axes[this.axis]);
-            }
+					value += Math.abs(gamepad.axes[this.axis])
+				}
+			}
+		}
+		if (gamepad !== null && gamepad.buttons) {
+
+			if (gamepad.buttons[this.button]) {
+				
+				value += gamepad.buttons[this.button].value
+			}
 		}
 	}
 
@@ -80,7 +96,7 @@ Key.prototype.draw = function (canvas, ctx) {
 
 	// Fill value
     ctx.beginPath();
-    canvas_fill_rec(ctx, fillOffset, fillOffset+this.fillSize, this.fillSize, -this.fillSize * this.value, {fillStyle:this.fillStyle});
+    canvas_fill_rec(ctx, fillOffset, fillOffset, this.fillSize, this.fillSize * this.value, {fillStyle:this.fillStyle});
 
 
 	ctx.drawImage(
