@@ -40,6 +40,7 @@ https://user-images.githubusercontent.com/2780639/119910697-fb0e2400-bf57-11eb-8
 
 ## Left-Joystick movement
 Wooting Profile Template code: '`86031f1a-8848-46ec-9d8a-12424c2d48dc`'
+> `https://darrenvs.github.io/analog_keyboard_overlay/index.html`
 
 Or map the following axes to your keyboard keys:
 
@@ -48,6 +49,7 @@ Or map the following axes to your keyboard keys:
 
 ## MOBA Gamers only:
 Wooting Profile Template code '`8ae20ae2-3482-4f66-af63-9fea29043f3f`'
+> `https://darrenvs.github.io/analog_keyboard_overlay/index.html#moba`
 
 Or map the following axes to your keyboard keys:
 
