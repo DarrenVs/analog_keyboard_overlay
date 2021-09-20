@@ -10,16 +10,18 @@ The current limitations of the OBS browser plugin scope is that you cannot read 
 
 Doing it this way does not show any accuracy of how far the key is pressed (due to the many factors that go into the joystick output such as Analog Curve). It will however give a general idea on how keypresses could translate to the joystick output.
 
-## Installation & use
+# Installation & use
 
 ### OBS Installation:
+
+Create a new browser element and add one of the following URL's as the source.
+
+![Overlay installation](https://i.imgur.com/CqEanAn.png)
 
 > `https://darrenvs.github.io/analog_keyboard_overlay/index.html`
 > `https://darrenvs.github.io/analog_keyboard_overlay/index.html#nokeys` (removes WASD)
 > `https://darrenvs.github.io/analog_keyboard_overlay/index.html#fortnite` (fortnite double movement modifier)
-> `https://darrenvs.github.io/analog_keyboard_overlay/index.html#moba` (QWER DF keys) *note: uses DirectInput axes*
-
-![Overlay installation](https://i.imgur.com/CqEanAn.png)
+> `https://darrenvs.github.io/analog_keyboard_overlay/index.html#moba` (QWER DF keys) *check below*
 
 ### Move elements around:
 
@@ -34,13 +36,38 @@ Doing it this way does not show any accuracy of how far the key is pressed (due 
 ## Preview
 https://user-images.githubusercontent.com/2780639/119910697-fb0e2400-bf57-11eb-8c88-68c30990f40d.mp4
 
+# Wooting profiles
+
+## Left-Joystick movement
+Wooting Profile Template code: '`86031f1a-8848-46ec-9d8a-12424c2d48dc`'
+> `https://darrenvs.github.io/analog_keyboard_overlay/index.html`
+
+Or map the following axes to your keyboard keys:
+
+![image](https://user-images.githubusercontent.com/2780639/133868183-56d5ae1a-7db8-46d0-a4e2-f961928485db.png)
+
 
 ## MOBA Gamers only:
-Use a DirectInput gamepad for the extra axes it brings. Also known as 'Legacy Controller' in the Wootility Keyboard settings.
+Wooting Profile Template code '`8ae20ae2-3482-4f66-af63-9fea29043f3f`'
+> `https://darrenvs.github.io/analog_keyboard_overlay/index.html#moba`
 
-![image](https://user-images.githubusercontent.com/2780639/130568002-6c7160d9-9588-42ac-a66f-552132b9245d.png)
+Or map the following axes to your keyboard keys:
 
-Use this profile template for your Wooting '`507cccec-34d2-4387-83b6-520fcaf90feb`', or map the following axes to your keyboard keys:
+![image](https://user-images.githubusercontent.com/2780639/133868116-ae5861af-f32f-4f09-80ce-bc5edcb5d690.png)
 
-![image](https://user-images.githubusercontent.com/2780639/130568183-cfd58ea1-bd09-4ea6-b74a-1296b0d0c2f2.png)
+## Demoing/Reviewing uses:
+
+Since the up and down axes are linked, we cannot accuractly show both W and S pressed at the same time.
+If you would like to show the full range of all 4 keys for demoing purposes, use the following overlay:
+> `https://darrenvs.github.io/analog_keyboard_overlay/index.html#review`
+
+This overlay separates W and A to left joystick, and D and S to right joystick axes to more accuractly demonstrate the key presses.
+
+---
+
+Wooting Profile Template code '`7adb6844-fa01-4fd9-9413-a4c6ddb4356c`'
+
+Or map the following axes to your keyboard keys:
+
+![wootility-lekker-dev_bg7jXQ0JWg](https://user-images.githubusercontent.com/2780639/133868469-66731db4-57ea-436c-b44c-30bfed56951b.png)
 
