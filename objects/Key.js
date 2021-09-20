@@ -96,7 +96,7 @@ Key.prototype.draw = function (canvas, ctx) {
 
 	// Fill value
     ctx.beginPath();
-    canvas_fill_rec(ctx, fillOffset, fillOffset, this.fillSize, this.fillSize * this.value, {fillStyle:this.fillStyle});
+	canvas_fill_rec(ctx, fillOffset, fillOffset + this.fillSize, this.fillSize, -this.fillSize * this.value, {fillStyle:this.fillStyle});
 
 
 	ctx.drawImage(
