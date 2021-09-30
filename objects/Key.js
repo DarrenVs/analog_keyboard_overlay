@@ -12,7 +12,7 @@ defaultKeyProperties = {
     revertedAxis: false,
     size: 100,
     multiplier: 1,
-    deadzone: 0.2,
+    antiDeadzone: 0.0,
 	backgroundImage: new Image(),
 	fillStyle: "rgba(255, 255, 255, 0.5)",
 	fillStyleBackground: "rgba(37, 37, 37, 0.43)",
@@ -46,6 +46,7 @@ function Key(x, y, width, height, properties) {
 Key.prototype.update = function (delta) {
 
 	var value = 0;
+	var linkedValue = 0;
 
 	// Get keyboard input
 	value += keyboard[this.keyCode] ? 1 : 0;
@@ -60,12 +61,19 @@ Key.prototype.update = function (delta) {
 			|| (this.revertedAxis === false && gamepad.axes[this.axis] > 0)) {
 				if (gamepad.axes[this.linkedAxis]) {
 
-					value += Math.abs(gamepad.axes[this.axis])
-						* (1.2 + Math.sin(Math.PI * Math.abs(gamepad.axes[this.linkedAxis])) / Math.PI); // quick fix to hide circular joystick
+					//Converts circular back to square coordinates
+					value += Math.abs(gamepad.axes[this.axis]) * Math.sqrt(1 + 2 * Math.pow(Math.abs(gamepad.axes[this.linkedAxis]), 2))
+					
 				} else {
 
-					value += Math.abs(gamepad.axes[this.axis])
+					value += (Math.abs(gamepad.axes[this.axis]) - newAntiDeadzone) / (1 - newantiDeadzone)
 				}
+			}
+
+
+			if (gamepad.axes[this.linkedAxis]) {
+
+				linkedValue += Math.abs(gamepad.axes[this.linkedAxis])
 			}
 		}
 		if (gamepad !== null && gamepad.buttons) {
@@ -77,11 +85,15 @@ Key.prototype.update = function (delta) {
 		}
 	}
 
+	// Key antiDeadzone has to be lowered when a linked axis surpasses the antiDeadzone for better directional indications
+	// This is a lazy way to achieve this, but works for now
+	var newAntiDeadzone = Math.max(0, this.antiDeadzone - linkedValue*0.5)
+
 	// Update input
-	this.value = Math.max(Math.min(value*this.multiplier, 1), 0);
+	this.value = Math.max(Math.min((value - newAntiDeadzone) / (1 - newAntiDeadzone) * this.multiplier, 1), 0);
 
 	// Update position
-	return true //Math.abs(this._previousValue - this.value) > this.deadzone;
+	return true //Math.abs(this._previousValue - this.value) > this.antiDeadzone;
 }
 
 
