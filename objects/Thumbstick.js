@@ -6,6 +6,7 @@
 defaultThumbstickProperties = {
     radius: 100,
     deadzone: 0.1,
+	antiDeadzone: 0,
 	xAxes: {0:true},
 	yAxes: {1:true},
 	backgroundProperties: {strokeStyle:"black", lineWidth:4, fillStyle:"rgba(255,255,255,0.3)"},
@@ -103,7 +104,10 @@ Thumbstick.prototype.draw = function (canvas, ctx) {
 
     if (this.input.length() > this.deadzone) {
 
-        var normalInput = this.input.unit(1, 1);
+		var normalInput = this.input.unit(1, 1);
+
+		var currentAngles = this.input.toAngles()
+		var clampedInput = Vector.fromAngles(currentAngles.theta, currentAngles.phi).multiply((this.input.length() - this.antiDeadzone) / (1 - this.antiDeadzone));
 
         // Maxed out vector
 		ctx.beginPath();
@@ -112,7 +116,7 @@ Thumbstick.prototype.draw = function (canvas, ctx) {
 
         // Direction vector
 		ctx.beginPath();
-        canvas_arrow(ctx, 0, 0, this.input.x * this.radius, this.input.y * this.radius, this.inputVectorProperties);
+        canvas_arrow(ctx, 0, 0, clampedInput.x * this.radius, clampedInput.y * this.radius, this.inputVectorProperties);
         ctx.stroke();
     }
     ctx.closePath();
