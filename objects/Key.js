@@ -51,6 +51,10 @@ Key.prototype.update = function (delta) {
 	// Get keyboard input
 	value += keyboard[this.keyCode] ? 1 : 0;
 
+	// Key antiDeadzone has to be lowered when a linked axis surpasses the antiDeadzone for better directional indications
+	// This is a lazy way to achieve this, but works for now
+	var newAntiDeadzone = Math.max(0, this.antiDeadzone - linkedValue * 0.5)
+
 	// Get gamepad input
 	for (var id in gamepads) {
 		var gamepad = gamepads[id];
@@ -66,7 +70,7 @@ Key.prototype.update = function (delta) {
 					
 				} else {
 
-					value += (Math.abs(gamepad.axes[this.axis]) - newAntiDeadzone) / (1 - newantiDeadzone)
+					value += (Math.abs(gamepad.axes[this.axis]) - newAntiDeadzone) / (1 - newAntiDeadzone)
 				}
 			}
 
@@ -84,10 +88,6 @@ Key.prototype.update = function (delta) {
 			}
 		}
 	}
-
-	// Key antiDeadzone has to be lowered when a linked axis surpasses the antiDeadzone for better directional indications
-	// This is a lazy way to achieve this, but works for now
-	var newAntiDeadzone = Math.max(0, this.antiDeadzone - linkedValue*0.5)
 
 	// Update input
 	this.value = Math.max(Math.min((value - newAntiDeadzone) / (1 - newAntiDeadzone) * this.multiplier, 1), 0);
