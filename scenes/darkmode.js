@@ -33,7 +33,7 @@ function scene_default(canvas, ctx) {
                 yLineProperties: {strokeStyle:"#D2D2D2", lineWidth:4},
                 deadzoneProperties: { fillStyle:"#2D2D2D"},
                 inputVectorProperties: {strokeStyle:"#D2D2D2", lineWidth:4},
-                unitVectorProperties: {strokeStyle:"#524d4d", lineWidth:4},
+                unitVectorProperties: { strokeStyle:"#2D2D2D", lineWidth:4},
             }
         ),
         new Key(
