@@ -28,9 +28,9 @@ function scene_default(canvas, ctx) {
         new Thumbstick(
             15, 50, 200, 200,
             {
-                backgroundProperties: {lineWidth: 4, strokeStyle:"#2D2D2D", fillStyle:"rgba(37, 37, 37, 0.43)"},
-                xLineProperties: {strokeStyle:"#D2D2D2", lineWidth:4},
-                yLineProperties: {strokeStyle:"#D2D2D2", lineWidth:4},
+                backgroundProperties: {lineWidth: 4, strokeStyle:"#2D2D2D", fillStyle:"rgba(0, 0, 0, 0.543)"},
+                xLineProperties: { strokeStyle:"#2D2D2D", lineWidth:4},
+                yLineProperties: { strokeStyle:"#2D2D2D", lineWidth:4},
                 deadzoneProperties: { fillStyle:"#2D2D2D"},
                 inputVectorProperties: {strokeStyle:"#D2D2D2", lineWidth:4},
                 unitVectorProperties: { strokeStyle:"#2D2D2D", lineWidth:4},
