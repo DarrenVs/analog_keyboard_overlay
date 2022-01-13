@@ -17,6 +17,7 @@ defaultKeyProperties = {
 	fillStyle: "rgba(255, 255, 255, 0.5)",
 	fillStyleBackground: "rgba(37, 37, 37, 0.43)",
 	fillSize: 85,
+	fontStyle: { textAlign: "center", fillStyle: "white", font: "30px Lucida Console" },
 }
 
 
@@ -120,5 +121,5 @@ Key.prototype.draw = function (canvas, ctx) {
 	)
 
     // Print key text
-    canvas_text(ctx, this.size*.5, this.size*.5, this.keyText, {textAlign:"center",fillStyle:"white",font:"30px Lucida Console"});
+    canvas_text(ctx, this.size*.5, this.size*.5, this.keyText, this.fontStyle);
 }
