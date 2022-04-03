@@ -101,6 +101,9 @@ PropertyEdit.prototype.showPropertyEdit = function(defaultProperties, targetObje
 				case "number":
 					inputValue = Number(e.currentTarget.value);
 					break;
+				case "boolean":
+					inputValue = Boolean(e.currentTarget.value);
+					break;
 				default:
 					inputValue = e.currentTarget.value;
 			}
