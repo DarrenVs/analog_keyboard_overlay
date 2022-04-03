@@ -10,7 +10,6 @@ defaultKeyProperties = {
     axis: 0,
 	linkedAxis: -1,
     revertedAxis: false,
-	reverseFillDirection: false,
     size: 100,
     multiplier: 1,
     antiDeadzone: 0.0,
@@ -110,10 +109,7 @@ Key.prototype.draw = function (canvas, ctx) {
 
 	// Fill value
     ctx.beginPath();
-	if (this.reverseFillDirection == true)
-		canvas_fill_rec(ctx, fillOffset, fillOffset + this.fillSize, this.fillSize, -this.fillSize * this.value, { fillStyle: this.fillStyle });
-	else
-		canvas_fill_rec(ctx, fillOffset, fillOffset, this.fillSize, this.fillSize * this.value, { fillStyle: this.fillStyle });
+	canvas_fill_rec(ctx, fillOffset, fillOffset + this.fillSize, this.fillSize, -this.fillSize * this.value, {fillStyle:this.fillStyle});
 
 
 	ctx.drawImage(
