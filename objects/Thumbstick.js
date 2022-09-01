@@ -9,6 +9,8 @@ defaultThumbstickProperties = {
 	antiDeadzone: 0,
 	xAxes: {0:true},
 	yAxes: {1:true},
+	revertedAxisX: false,
+	revertedAxisY: false,
 	backgroundProperties: {strokeStyle:"black", lineWidth:4, fillStyle:"rgba(255,255,255,0.3)"},
 	xLineProperties: {strokeStyle:"blue", lineWidth:4},
 	yLineProperties: {strokeStyle:"red", lineWidth:4},
@@ -63,6 +65,10 @@ Thumbstick.prototype.update = function (delta) {
 			}
 		}
 	}
+
+	// Reverse axis
+	if (this.revertedAxisX) xAxis *= -1;
+	if (this.revertedAxisY) yAxis *= -1;
 
 	// Update input
 	this.previousX = this.input.x;
