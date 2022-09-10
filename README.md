@@ -23,7 +23,7 @@ Create a new browser element and add one of the following URL's as the source.
 - https://darrenvs.github.io/analog_keyboard_overlay/#darkmode - Darkmode (high contrast)
 - https://darrenvs.github.io/analog_keyboard_overlay/#nokeys - Removes WASD
 - https://darrenvs.github.io/analog_keyboard_overlay/#fortnite - Fortnite double movement modifier
-- https://darrenvs.github.io/analog_keyboard_overlay/#moba - QWER DF keys (*check below*)
+- https://darrenvs.github.io/analog_keyboard_overlay/#moba - QWER DF keys [(*check below*)][b7c84n9s]
 
 ### Move elements around:
 
@@ -33,6 +33,7 @@ Create a new browser element and add one of the following URL's as the source.
 [b68cfb52]: https://developer.mozilla.org/nl/docs/Web/API/Canvas_API "Canvas API"
 [e148b553]: https://obsproject.com/ "Open Broadcaster Software"
 [ebc9fbee]: https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getGamepads "getGamepads"
+[b7c84n9s]: https://github.com/DarrenVs/analog_keyboard_overlay#moba-gamers-only "MOBA configuration"
 
 
 ## Preview
