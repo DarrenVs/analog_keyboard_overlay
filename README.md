@@ -18,10 +18,12 @@ Create a new browser element and add one of the following URL's as the source.
 
 ![Overlay installation](https://i.imgur.com/CqEanAn.png)
 
-> `https://darrenvs.github.io/analog_keyboard_overlay/index.html`
-> `https://darrenvs.github.io/analog_keyboard_overlay/index.html#nokeys` (removes WASD)
-> `https://darrenvs.github.io/analog_keyboard_overlay/index.html#fortnite` (fortnite double movement modifier)
-> `https://darrenvs.github.io/analog_keyboard_overlay/index.html#moba` (QWER DF keys) *check below*
+#### Different interrations:
+- https://darrenvs.github.io/analog_keyboard_overlay/ - Default
+- https://darrenvs.github.io/analog_keyboard_overlay/#darkmode - Darkmode (high contrast)
+- https://darrenvs.github.io/analog_keyboard_overlay/#nokeys - Removes WASD
+- https://darrenvs.github.io/analog_keyboard_overlay/#fortnite - Fortnite double movement modifier
+- https://darrenvs.github.io/analog_keyboard_overlay/#moba - QWER DF keys (*check below*)
 
 ### Move elements around:
 
