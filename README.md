@@ -10,6 +10,13 @@ The current limitations of the OBS browser plugin scope is that you cannot read 
 
 Doing it this way does not show any accuracy of how far the key is pressed (due to the many factors that go into the joystick output such as Analog Curve). It will however give a general idea on how keypresses could translate to the joystick output.
 
+## Alternative projects worth checking out
+
+- **[Woot-verlay](https://github.com/DjCrqss/Woot-verlay)** by [DjCrqss](https://github.com/DjCrqss)
+
+Easy to use OBS friendly analog input visualiser for your entire Wooting keyboard with help from a background service.\
+It may also display the state of your key when pressed in colors which is especially useful for demonstrating/streaming the behavior of Rapid Trigger to your audience.
+
 # Installation & use
 
 ### OBS Installation:
